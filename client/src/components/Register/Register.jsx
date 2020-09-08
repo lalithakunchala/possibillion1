@@ -19,7 +19,8 @@ export class Register extends Component {
             name:"",
             gender:"male",
             enter:false,
-            stDate: new Date()
+            stDate: "",
+            password: ""
         }
     }
     
@@ -120,8 +121,10 @@ export class Register extends Component {
                             onChange={ this.handleDateChange }
                             dateFormat="MMMM d, yyyy"
                             className={styles.dat}
+                            
                             />
 
+                            <input type="password" name="password" placeholder="password" onChange={this.handleChange} className={styles.dat}></input><br/>
                             
                             <div className="form-check col-6 float-left">
                             <input class="form-check-input align-left" onChange={this.handleChange} type="radio" name="gender" id="exampleRadios1" value="male" checked />

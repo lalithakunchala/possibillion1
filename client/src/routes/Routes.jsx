@@ -9,7 +9,7 @@ export default function Routes() {
     return (
         <Switch>
             <Route path="/" exact component={Register} />
-            {/* <Route path="/admindashboard" exact render={(props) => <AdminDashboard {...props}/>}/> */}
+            <Route path="/login" exact render={(props) => <Login {...props}/>}/>
         </Switch>
     )
 }

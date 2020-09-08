@@ -4,21 +4,15 @@ import {FETCH_ADMIN_REGISTER_FAILURE,
     FETCH_ADMIN_LOGIN_FAILURE,
     FETCH_ADMIN_LOGIN_REQUEST,
     FETCH_ADMIN_LOGIN_SUCCESS,
-    FETCH_ADMIN_FAILURE,
-    FETCH_ADMIN_REQUEST,
-    FETCH_ADMIN_SUCCESS,LOGOUT} from './actionTypes'
+    LOGOUT} from './actionTypes'
 
     const initStore = {
         isLoading: false,
-        data: [],
-        error: "",
         regError:"",
         regSuccess:"",
         logError:"",
         logSuccess:"",
-        logUser:"",
-        userSuccess:"",
-        userError:""
+        logUser:""
       };
       
       const reducer = (state = initStore, {type,payload}) => {
@@ -69,27 +63,6 @@ import {FETCH_ADMIN_REGISTER_FAILURE,
               ...state,
               isLoading: false,
               logError: payload
-            };
-            case FETCH_ADMIN_REQUEST:
-            console.log("reducer login request called");
-            return {
-              ...state,
-              isLoading: true
-              
-            };
-            case FETCH_ADMIN_SUCCESS:
-            console.log("reducer login request called");
-            return {
-              ...state,
-              userSuccess:payload,
-              isLoading: false
-            };
-            case FETCH_ADMIN_FAILURE:
-            console.log("reducer login  failure request called");
-            return {
-              ...state,
-              isLoading: false,
-              userError: payload
             };
     
             case LOGOUT:
