@@ -29,6 +29,9 @@ export class Register extends Component {
             
             if(this.checkEmail(this.state.email) && this.checkMobile(this.state.mobile) && this.checkName(this.state.name)){
                 this.props.fetchRegister(this.state)
+                this.setState({
+                    enter:false
+                })
             }
             else{
                 this.setState({
@@ -70,60 +73,7 @@ export class Register extends Component {
         }
     }
 
-    // checkEmail = (input)=>{
-    //     var count = 0;
-    //     var flag = true;
-    //     var first_l = input[0];
-    //   if(first_l=='.'||first_l=='@'){
-    //     flag = false;
-    //   }
-    //   else{
-    //     for(var i=1; i<input.length; i++){
-    //       if(input[i]=='@'){
-    //         if(input[i+1]=='.'){
-    //           flag=false;
-    //           break;
-    //         }
-    //       }
-    //       if(input[i]=='.'){
-    //         if(input[i+1]=='.'){
-    //           flag=false;
-    //           break;
-    //         }
-    //       }
-    //     }
-    //   }
-    //   var count1=0;
-    //   for(var i=0; i<input.length; i++){
-    //     if(input[i]=='@'){
-    //       count1++;
-    //     }
-    //   }
-    //   if(count1<1 || count1>1){
-    //     flag=false;
-    //   }
-    //   for(var i=0; i<input.length; i++){
-    //     if(input[i]=='*'||input[i]=='('||input[i]==')'){
-    //       flag=false;
-    //     }
-    //   }
-    //   var s = input.split(".");
-    //   var indx = (s.length)-1;
-    //   if(s[indx]=='org'||s[indx]=='com'||s[indx]=='net'){
-    //     for(var i=0; i<s.length; i++){
-    //       if(s[i]=='org'||s[i]=='net'||s[i]=='com'){
-    //         count++;
-    //       }
-    //     }
-    //     if(count>1){
-    //       flag=false;
-    //     }
-    //   }
-    //   else{
-    //     flag=false;
-    //   }
-    //   return flag;
-    // }
+   
 
     checkEmail = (input)=>{
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input))
@@ -145,8 +95,8 @@ export class Register extends Component {
                 <div>
                     <div className={styles.cardPadding}>
                         <div className={styles.cardBody}>
-                        <div class="card-header" style={{background:"#CA005D"}}>
-                        <h3 className={styles.forgot}>User SignUp</h3>
+                        <div class="card-header" style={{background:"grey"}}>
+                        <h3 className={styles.forgot}>Register</h3>
                         </div>
                         <div class="card text-center" >
                         <div class="card-body">
