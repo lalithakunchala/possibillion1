@@ -67,7 +67,7 @@ export class Login extends Component {
                     <div className={styles.cardPadding}>
                         <div className={styles.cardBody}>
                         <div class="card-header" style={{background:"grey"}}>
-                        <h3 className={styles.forgot}>Register</h3>
+                        <h3 className={styles.forgot}>Login</h3>
                         </div>
                         <div class="card text-center" >
                         <div class="card-body">
