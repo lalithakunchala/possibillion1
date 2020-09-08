@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styles from './UserSignUp.module.css'
-import NavBar from '../Navbar/NavBar.jsx';
+import styles from './Register.module.css'
+// import NavBar from '../Navbar/NavBar.jsx';
 import {Redirect} from 'react-router-dom'
-import {fetchUserRegister} from '../../redux/userauth/action'
+import {fetchRegister} from '../../redux/action'
 
 export class Register extends Component {
 
@@ -27,8 +27,8 @@ export class Register extends Component {
     handleClick= ()=>{
         if(this.state.email!==""&& this.state.name!==""&&this.state.password!==""){
             
-            if(checkEmail(this.state.email) && checkMobile(this.state.mobile) && checkName(this.state.name)){
-                this.props.fetchUserRegister(this.state)
+            if(this.checkEmail(this.state.email) && this.checkMobile(this.state.mobile) && this.checkName(this.state.name)){
+                this.props.fetchRegister(this.state)
             }
             else{
                 this.setState({
@@ -44,28 +44,28 @@ export class Register extends Component {
         
     }
 
-    checkMobile = (input)=>{
-        var numbers = /^[0-9]+$/;
-            if(input.match(numbers))
+    checkMobile = (inpt)=>{
+        inpt = Number(inpt);
+            if(/^\d{10}$/.test(inpt))
             {
                 return true;
             }
             else
             {
-                alert('Please input numeric characters only');
+                alert('Please input numeric characters only for mobile number with 10 digits');
                 return false;
             }
     }
 
     checkName = (input)=>{
-        var letters = /^[A-Za-z]+$/;
-        if(input.match(letters))
+        // var letters = /^[A-Za-z]+$/;
+        if(/^[A-Za-z]+$/.test(input))
         {
             return true;
         }
         else
         {
-            alert('Please input alphabet characters only');
+            alert('Please input alphabet characters only for Name');
             return false;
         }
     }
@@ -140,7 +140,7 @@ export class Register extends Component {
         return (
             <div>
                 <div className={styles.bgWhite}>
-                <NavBar />
+                {/* <NavBar /> */}
                 </div>
                 <div>
                     <div className={styles.cardPadding}>
@@ -153,7 +153,8 @@ export class Register extends Component {
                             <p class="card-text text-center">Enter Details</p>
                             <input type="text" name="name" placeholder="name" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
                             <input type="text" name="email" placeholder="email" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
-                            <input type="text" name="password" placeholder="password" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
+                            <input type="text" name="mobile" placeholder="mobile" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
+                            <input type="password" name="password" placeholder="password" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
                             <button className={styles.btnCss} onClick={this.handleClick}>Register</button>
                         </div>
                         {this.state.enter?<div style={{color:'red'}}>Enter all details</div>:""}
@@ -163,7 +164,7 @@ export class Register extends Component {
                         <Redirect to="/login" />
                     }                  
                     </div>
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
             </div>
         )
@@ -172,13 +173,13 @@ export class Register extends Component {
 
 
 const mapStateToProps = (state) => ({
-    regError:state.userauth.regError,
-    regSuccess:state.userauth.regSuccess
+    regError:state.regError,
+    regSuccess:state.regSuccess
 })
 
 const mapDispatchToProps = dispatch=>{
     return {
-        fetchUserRegister: (n) => dispatch(fetchUserRegister(n))
+        fetchRegister: (n) => dispatch(fetchRegister(n))
       };
 }
 
