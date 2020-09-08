@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 
 export class Profile extends Component {
     render() {
-        //const {logSuccess} = this.props
-       var  logSuccess = 
-            {
-                data:{
-                name: "Lalitha",
-                email: "lalitha@gmail.com",
-                mobile: 9542332852,
-                dob: "22-08-1989",
-                gender: "female"
-        }}
+        const {logSuccess} = this.props
+    //    var  logSuccess = 
+    //         {
+    //             data:{
+    //             name: "Lalitha",
+    //             email: "lalitha@gmail.com",
+    //             mobile: 9542332852,
+    //             dob: "22-08-1989",
+    //             gender: "female"
+    //     }}
         return (
             <div className="container">
                 <Link to="/"><button onClick={this.props.logout}>Logout</button></Link>
