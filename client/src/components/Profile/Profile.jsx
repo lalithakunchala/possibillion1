@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {logout} from  '../../redux/action'
+import { Link } from "react-router-dom";
 
 export class Profile extends Component {
     render() {
+
+       var  logSuccess = 
+            {
+                name: "Lalitha",
+                email: "lalitha@gmail.com",
+                mobile: 9542332852,
+                dob: "22-08-1989",
+                gender: "female"
+        }
         return (
-            <div>
-                <div onClick={this.props.logout}>Logout</div>
+            <div className="container">
+                <Link to="/"><button onClick={this.props.logout}>Logout</button></Link>
                {
-                   this.props.logSuccess.success && 
+                   logSuccess&& 
                    <div>
                    <table class="table table-bordered">
                     <tbody>
