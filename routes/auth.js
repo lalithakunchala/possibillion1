@@ -1,5 +1,5 @@
 var express = require("express");
-var User = require("../models/user");
+var User = require("../models/auth");
 var router = express.Router();
 
 
@@ -55,3 +55,5 @@ router.post("/register", function (req, res) {
     }
   });
 });
+
+module.exports = router ;

@@ -46,7 +46,7 @@ const fetchRegister = (data) => {
   return dispatch => {
       dispatch(fetchAdminRegisterRequest())
       return  axios.post(
-          "http://localhost:8000/register",
+          "http://localhost:8000/auth/register",
             {
             "name": `${data.name}`,
             "email": `${data.email}`,
@@ -94,7 +94,7 @@ const fetchAdminLoginFailure = error => {
   return dispatch => {
       dispatch(fetchAdminLoginRequest())
       return  axios.post(
-          "http://localhost:8000/login",
+          "http://localhost:8000/auth/login",
             {
             
             "password": `${userdetails.password}`,
