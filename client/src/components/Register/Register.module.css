@@ -12,7 +12,6 @@
     margin:auto;
     padding: 20px;
     margin-top: 70px;
-    border:2px solid silver;
 }
 
 .cardBody div:first{
@@ -51,6 +50,13 @@
 
 input{
     padding:10px;
-    margin: 5px;
+    margin: 15px;
+}
+
+.dat{
+    padding:10px;
+    margin: 5px; 
+    width: 260px;
+    margin:10px;
 }
   

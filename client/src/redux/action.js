@@ -45,20 +45,20 @@ const fetchAdminRegisterFailure = error => {
 
 const fetchRegister = (data) => {
   console.log("fetch register Data called", data);
-  return dispatch => {
-      dispatch(fetchAdminRegisterRequest())
-      return  axios.post(
-          "http://localhost:8000/admin/register",
-            {
-            "name": `${data.name}`,
-            "email": `${data.email}`,
-            "password": `${data.password}`,
-        }).then(res=>{
-          console.log("response register success", res.data);
-          return dispatch(fetchAdminRegisterSuccess(res.data));
-        })
-        .catch(error => fetchAdminRegisterFailure(error))
-  }
+//   return dispatch => {
+//       dispatch(fetchAdminRegisterRequest())
+//       return  axios.post(
+//           "http://localhost:8000/admin/register",
+//             {
+//             "name": `${data.name}`,
+//             "email": `${data.email}`,
+//             "password": `${data.password}`,
+//         }).then(res=>{
+//           console.log("response register success", res.data);
+//           return dispatch(fetchAdminRegisterSuccess(res.data));
+//         })
+//         .catch(error => fetchAdminRegisterFailure(error))
+//   }
 }
 
 const fetchAdminLoginRequest = () => {
