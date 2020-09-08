@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styles from './Register.module.css'
-// import NavBar from '../Navbar/NavBar.jsx';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Redirect} from 'react-router-dom'
 import {fetchRegister} from '../../redux/action'
 
@@ -14,7 +16,8 @@ export class Register extends Component {
             email:"",
             name:"",
             mobile:"",
-            enter:false
+            enter:false,
+            stDate: new Date()
         }
     }
     
@@ -85,6 +88,11 @@ export class Register extends Component {
         }
     
 
+        handleDateChange(date) {
+            this.setState({
+            stDate: date
+            })
+            }
 
     render() {
         return (
@@ -104,7 +112,32 @@ export class Register extends Component {
                             <input type="text" name="name" placeholder="name" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
                             <input type="text" name="email" placeholder="email" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
                             <input type="text" name="mobile" placeholder="mobile" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
-                            <input type="password" name="password" placeholder="password" onChange={this.handleChange} className=" p-2 w-100"></input><br/>
+                            <input type="date" name="date" placeholder="Date" format="mm-dd-yyyy"onChange={this.handleChange} className=" p-2 w-100"></input><br/>
+                                                        
+                            <DatePicker
+                            selected={ this.state.stDate }
+                            onChange={ this.handleDateChange }
+                            dateFormat="MMMM d, yyyy"
+                            className="form-control"
+                            />
+
+                        <input class="datepicker" type="date" data-date-format="mm/dd/yyyy"/>
+
+                            
+                            <div className="form-check col-6">
+                            <input class="form-check-input align-left" type="radio" name="exampleRadios" id="exampleRadios1" value="male" checked />
+                            <label class="form-check-label" for="exampleRadios1">
+                                Male
+                            </label>
+                            </div>
+                            <div className="form-check col-6">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="female" />
+                            <label class="form-check-label" for="exampleRadios2">
+                                Female
+                            </label>
+                            
+                            </div>
+                            
                             <button className={styles.btnCss} onClick={this.handleClick}>Register</button>
                         </div>
                         {this.state.enter?<div style={{color:'red'}}>Enter all details</div>:""}
